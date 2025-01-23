@@ -67,3 +67,18 @@ export const generatePagination = (currentPage: number, totalPages: number) => {
     totalPages,
   ];
 };
+
+
+export const convertStringToNumber = (value: string | undefined): number | undefined => {
+  if (value === undefined) {
+      return undefined; // Return undefined if the input is undefined
+  }
+  const numberValue = Number(value); // Convert the string to a number
+
+  // Check if the conversion was successful
+  if (isNaN(numberValue)) {
+      return undefined; // Return undefined if the conversion failed
+  }
+
+  return numberValue; // Return the valid number
+}
