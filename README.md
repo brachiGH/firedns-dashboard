@@ -1,78 +1,131 @@
-# My Next.js Dashboard App Learning Journey 🚀
+# Next.js Foundations Course - README
 
-This README documents my progress while following the official Next.js Dashboard App tutorial. The course covered essential topics for building a dynamic, data-driven, and feature-rich web application. Below, I summarize the key concepts and skills I learned from each module.
-
----
-
-## 🏁 Getting Started
-
-**What I Learned:**  
-- Setting up a Next.js app with `create-next-app`.  
-- Understanding the benefits of server-rendered applications.  
-- Navigating the file structure of a Next.js project.
+This README provides an overview of the course and instructions for launching the project you'll build.
 
 ---
 
-## 🎨 Styling Your Dashboard  
+## **Course Overview**
 
-**What I Learned:**  
-- Applying global styles using CSS.  
-- Writing component-level styles with CSS Modules.  
-- Customizing the dashboard design to match real-world UI expectations.
+In this free interactive course, you’ll gain foundational knowledge of Next.js by building a full-stack financial dashboard application. By the end of this course, you’ll have the essential skills to create production-ready full-stack Next.js applications.
 
----
+### **What We’ll Be Building**
 
-## ⚙️ Data Fetching
+We’ll create a financial dashboard application with the following features:
 
-**What I Learned:**  
-- Fetching data server-side using `getStaticProps` and `getServerSideProps`.  
-- Loading external data into components to display dynamic content.  
-- Leveraging client-side fetching for real-time updates.
-
----
-
-## 🗂️ Creating Dynamic Routes  
-
-**What I Learned:**  
-- Creating dynamic routes using the `[slug]` convention.  
-- Building reusable components for different data types.  
-- Using parameters to render custom pages for user-specific data.
+- **Public Home Page**: A welcoming page accessible to all users.
+- **Login Page**: A secure login page for authentication.
+- **Dashboard Pages**: Protected pages accessible only to authenticated users.
+- **Invoice Management**: The ability for users to:
+  - Add new invoices
+  - Edit existing invoices
+  - Delete invoices
+- **Database Integration**: A Postgres database to store and manage data.
 
 ---
 
-## 🛠️ API Routes  
+## **Features Covered**
 
-**What I Learned:**  
-- Creating custom API routes in the `pages/api` directory.  
-- Fetching data directly from the backend using these API routes.  
-- Handling requests for dynamic data loading with server-side functions.
+### **Core Next.js Topics**
+- **Styling**: Explore various styling methods in Next.js.
+- **Optimizations**: Learn techniques for optimizing images, links, and fonts.
+- **Routing**: Implement nested layouts and pages using file-system routing.
+
+### **Full-Stack Development**
+- **Data Fetching**: 
+  - Set up a Postgres database on Vercel.
+  - Learn best practices for fetching and streaming data.
+- **Search and Pagination**: Use URL search parameters to implement these features.
+- **Data Mutations**: Utilize React Server Actions and revalidate the Next.js cache.
+  
+### **Advanced Features**
+- **Error Handling**: Handle general errors and 404 pages.
+- **Form Validation & Accessibility**: 
+  - Perform server-side form validation.
+  - Implement accessibility improvements.
+- **Authentication**: Secure your application using NextAuth.js and middleware.
+- **Metadata**: Add metadata for better social sharing.
+
+---
+
+## **Prerequisite Knowledge**
+
+To follow this course effectively, you should have a basic understanding of:
+
+- **React**: Components, props, state, hooks, Server Components, and Suspense.
+- **JavaScript**: ES6+ features like promises, async/await, and modules.
+
+If you're new to React, we recommend starting with our **React Foundations** course.
 
 ---
 
-## 🛑 Error Handling  
+## **System Requirements**
 
-**What I Learned:**  
-- Implementing robust error handling in API routes.  
-- Adding fallback pages to handle non-existent data or routes.  
-- Using try-catch blocks to display user-friendly error messages.
+Ensure your system meets the following requirements before starting:
 
----
-
-## 🔄 Updating Data  
-
-**What I Learned:**  
-- Writing logic for data mutation with POST and PUT requests.  
-- Handling user input for updating and modifying data dynamically.  
-- Validating and sanitizing data before updates.
+- **Node.js**: Version 18.18.0 or later ([Download Node.js](https://nodejs.org/)).
+- **Operating Systems**: macOS, Windows (including WSL), or Linux.
 
 ---
+
+## **Getting Started**
+
+### **1. Install Dependencies**
+This project uses `pnpm` for dependency management. If you don’t have `pnpm` installed, run: 
+
+```bash
+npm install -g pnpm
+```
+
+Then install the dependencies:
+
+```bash
+pnpm install
+```
+
+### **2. Configure Environment Variables**
+This project requires environment variables to be configured for the database connection. 
+
+1. Open the `.env.example` file located in the root directory.
+2. Set the following variables with your desired values:
+   ```env
+   POSTGRES_USER=
+   POSTGRES_PASSWORD=
+   POSTGRES_HOST=
+   POSTGRES_PORT=
+   POSTGRES_DATABASE=
+    ```
+If you're unsure, you can use the default values in the file. 3. Rename .env.example to .env.
+
+Additionally, ensure the database configuration in database/docker-compose.yml matches your .env values. Alternatively, use the default values and simply rename .env.example to .env.
+
+### **3. Set Up the Database**
+
+The project uses a Postgres database, managed through Docker Compose. Navigate to the database folder and launch the database using:
+
+```bash
+cd database
+docker-compose up
+```
+
+### **4. Launch the Project**
+
+To start the development server, return to the project root directory and run:
+
+```bash
+pnpm dev
+```
+This will start the application at http://localhost:3000.
+
+## Screenshots
+
+![Desktop and Mobile Views: Refer to the provided screenshots to visualize the final dashboard design for both desktop and mobile devices.](/public/readme/home-page-with-hero.avif)
 
 
 ## Next.js App Router Course - Starter
 
 This is the starter template for the Next.js App Router Course. It contains the starting code for the dashboard application.
 
-For more information, see the [course curriculum](https://nextjs.org/learn) on the Next.js Website.
+For more information, see the [course curriculum](https://nextjs.org/learn/dashboard-app/getting-started) on the Next.js Website.
 
 ---
 
