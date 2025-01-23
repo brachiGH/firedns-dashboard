@@ -4,13 +4,9 @@ This README provides an overview of the course and instructions for launching th
 
 ---
 
-## **Course Overview**
+### **What I Build**
 
-In this free interactive course, you’ll gain foundational knowledge of Next.js by building a full-stack financial dashboard application. By the end of this course, you’ll have the essential skills to create production-ready full-stack Next.js applications.
-
-### **What We’ll Be Building**
-
-We’ll create a financial dashboard application with the following features:
+Creating a financial dashboard application with the following features:
 
 - **Public Home Page**: A welcoming page accessible to all users.
 - **Login Page**: A secure login page for authentication.
@@ -104,7 +100,7 @@ The project uses a Postgres database, managed through Docker Compose. Navigate t
 
 ```bash
 cd database
-docker-compose up
+docker-compose up -d
 ```
 
 ### **4. Launch the Project**
