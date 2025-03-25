@@ -4,7 +4,8 @@ import Credentials from "next-auth/providers/credentials";
 import { z } from "zod";
 import { connectToDatabase } from "@/app/lib/connect-to-database";
 import type { User } from "@/app/lib/definitions";
-import bcrypt from "bcrypt";
+import argon2 from "argon2";
+
 
 async function getUser(email: string): Promise<User | undefined> {
     const client = await connectToDatabase();
@@ -31,7 +32,7 @@ export const { auth, signIn, signOut } = NextAuth({
             const { email, password } = parsedCredentials.data;
             const user = await getUser(email);
             if (!user) return null;
-            const passwordsMatch = await bcrypt.compare(password, user.password);
+            const passwordsMatch = await argon2.verify(user.password, password);
             
             if (passwordsMatch) return user;
         }

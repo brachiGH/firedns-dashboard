@@ -1,9 +1,9 @@
-import bcrypt from "bcrypt";
+import argon2 from "argon2"; 
 import { connectToDatabase } from "../lib/connect-to-database";
 import { invoices, customers, revenue, users } from "../lib/placeholder-data";
 
-
 const client = await connectToDatabase();
+
 async function seedUsers() {
   await client.query(`CREATE EXTENSION IF NOT EXISTS "uuid-ossp"`);
   await client.query(`
@@ -17,7 +17,7 @@ async function seedUsers() {
 
   const insertedUsers = await Promise.all(
     users.map(async (user) => {
-      const hashedPassword = await bcrypt.hash(user.password, 10);
+      const hashedPassword = await argon2.hash(user.password); 
       const query = `
         INSERT INTO users (id, name, email, password)
         VALUES ($1, $2, $3, $4)

@@ -1,5 +1,3 @@
-version: '3.8'
-
 services:
   postgres:
     image: postgres:latest
@@ -11,7 +9,8 @@ services:
       POSTGRES_PASSWORD: mypassword
       POSTGRES_DB: nextjs-dashboard-postgres
     volumes:
-      - ./postgres_data:/var/lib/postgresql/data
+      - postgres_data:/var/lib/postgresql/data
+    user: "999:999"
 
 volumes:
   postgres_data:

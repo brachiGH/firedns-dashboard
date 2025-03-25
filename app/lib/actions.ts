@@ -6,6 +6,8 @@ import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import { signIn } from '@/auth';
 import { AuthError } from 'next-auth';
+import { registerUserInDatabase } from "./register-user";
+import { log } from "console";
 
 
 const FormSchema = z.object({
@@ -166,5 +168,26 @@ export async function authenticate(
       }
     }
     throw error;
+  }
+}
+
+export async function registerUser(
+  prevState: string | undefined,
+  formData: FormData,
+) {
+  try {
+		await registerUserInDatabase(formData)
+    await signIn('credentials', formData);
+  } catch (error) {
+    const err = error as Error;
+    switch (err.message) {
+      case 'InvalidData':
+        return 'Invalid form data: missing required fields';
+      case 'PasswordsDoNotMatch':
+        return 'Passwords do not match.';
+      case 'duplicate key value violates unique constraint "users_email_key"':
+        return 'Email already in use.';
+    }
+    throw err;
   }
 }

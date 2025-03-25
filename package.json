@@ -10,8 +10,8 @@
     "@heroicons/react": "^2.2.0",
     "@tailwindcss/forms": "^0.5.10",
     "@vercel/postgres": "^0.10.0",
+    "argon2": "^0.41.1",
     "autoprefixer": "10.4.20",
-    "bcrypt": "^5.1.1",
     "clsx": "^2.1.1",
     "dotenv": "^16.4.7",
     "next": "^15.1.5",
@@ -26,11 +26,17 @@
     "zod": "^3.24.1"
   },
   "devDependencies": {
-    "@types/bcrypt": "^5.0.2",
     "@types/node": "22.10.1",
     "@types/pg": "^8.11.10",
     "@types/react": "19.0.0",
     "@types/react-dom": "19.0.0",
     "eslint-config-next": "15.1.5"
+  },
+  "pnpm": {
+    "ignoredBuiltDependencies": [
+      "argon2",
+      "bufferutil",
+      "sharp"
+    ]
   }
 }
