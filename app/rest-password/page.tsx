@@ -11,12 +11,6 @@ export default function LoginPage() {
             href="/login" 
             className="text-orange-400 hover:text-blue-800 transition-colors duration-200 hover:underline text-center"
             >Login</a>
-            <div className="text-sm text-center">
-              Don't have an account?{' '}
-              <a href="/signup" 
-              className="font-medium text-orange-400 hover:text-blue-800 transition-colors duration-200 hover:underline"
-              >Sign up</a>
-            </div>
           </div>
         </div>
       </div>

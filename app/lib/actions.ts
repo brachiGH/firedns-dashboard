@@ -9,7 +9,6 @@ import { AuthError } from 'next-auth';
 import { registerUserInDatabase } from "./register-user";
 import { log } from "console";
 
-
 const FormSchema = z.object({
   id: z.string(),
   customerId: z.string({
@@ -197,18 +196,19 @@ export async function requestPasswordReset(
   formData: FormData,
 ) {
   try {
+    log(formData)
 		// await registerUserInDatabase(formData)
     // await signIn('credentials', formData);
   } catch (error) {
     const err = error as Error;
-    switch (err.message) {
-      case 'InvalidData':
-        return 'Invalid form data: missing required fields';
-      case 'PasswordsDoNotMatch':
-        return 'Passwords do not match.';
-      case 'duplicate key value violates unique constraint "users_email_key"':
-        return 'Email already in use.';
-    }
+    // switch (err.message) {
+    //   case 'InvalidData':
+    //     return 'Invalid form data: missing required fields';
+    //   case 'PasswordsDoNotMatch':
+    //     return 'Passwords do not match.';
+    //   case 'duplicate key value violates unique constraint "users_email_key"':
+    //     return 'Email already in use.';
+    // }
     throw err;
   }
 }
@@ -218,18 +218,19 @@ export async function resetPassword(
   formData: FormData,
 ) {
   try {
+    log(formData)
 		// await registerUserInDatabase(formData)
     // await signIn('credentials', formData);
   } catch (error) {
     const err = error as Error;
-    switch (err.message) {
-      case 'InvalidData':
-        return 'Invalid form data: missing required fields';
-      case 'PasswordsDoNotMatch':
-        return 'Passwords do not match.';
-      case 'duplicate key value violates unique constraint "users_email_key"':
-        return 'Email already in use.';
-    }
+    // switch (err.message) {
+    //   case 'InvalidData':
+    //     return 'Invalid form data: missing required fields';
+    //   case 'PasswordsDoNotMatch':
+    //     return 'Passwords do not match.';
+    //   case 'duplicate key value violates unique constraint "users_email_key"':
+    //     return 'Email already in use.';
+    // }
     throw err;
   }
 }

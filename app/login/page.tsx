@@ -1,4 +1,3 @@
-import AcmeLogo from '@/app/ui/firedns-logo';
 import LoginForm from '@/app/ui/login-form';
 
 export default function LoginPage() {
@@ -13,7 +12,7 @@ export default function LoginPage() {
             className="text-orange-400 hover:text-blue-800 transition-colors duration-200 hover:underline text-center"
             >Forgot password?</a>
             <div className="text-sm text-center">
-              Don't have an account?{' '}
+              Don&apos;t have an account?{' '}
               <a href="/signup" 
               className="font-medium text-orange-400 hover:text-blue-800 transition-colors duration-200 hover:underline"
               >Sign up</a>
