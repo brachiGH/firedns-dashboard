@@ -1,5 +1,4 @@
 'use client';
-
 import { lusitana } from '@/app/ui/fonts';
 import {
 	AtSymbolIcon,
@@ -19,60 +18,60 @@ export default function SignupForm() {
 	);
 	
 	return (
-		<form className="space-y-3" action={formAction}>
-			<div className="flex-1 rounded-lg bg-gray-50 px-6 pb-4 pt-8">
-				<h1 className={`${lusitana.className} mb-3 text-2xl`}>
+		<form className="space-y-3 min-h-screen flex items-center justify-center p-4">
+			<div className="w-full max-w-md bg-blackbg-400 rounded-2xl shadow-2xl border border-blackbg-600 px-8 py-10">
+				<h1 className={`${lusitana.className} mb-6 text-3xl font-bold text-white text-center`}>
 					Create your account
 				</h1>
 				<div className="w-full">
 					<div>
 						<label
-							className="mb-3 mt-5 block text-xs font-medium text-gray-900"
+							className="mb-2 block text-sm font-medium text-gray-300"
 							htmlFor="name"
 						>
 							Full Name
 						</label>
 						<div className="relative">
 							<input
-								className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
+								className="peer block w-full rounded-lg border border-blackbg-600 bg-blackbg-500 py-3 pl-12 text-sm text-white placeholder-gray-500 focus:border-orange-400 focus:outline-none focus:ring-2 focus:ring-orange-500"
 								id="name"
 								type="text"
 								name="name"
 								placeholder="Enter your full name"
 								required
 							/>
-							<UserIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
+							<UserIcon className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-500 peer-focus:text-orange-400" />
 						</div>
 					</div>
 					<div className="mt-4">
 						<label
-							className="mb-3 mt-5 block text-xs font-medium text-gray-900"
+							className="mb-2 block text-sm font-medium text-gray-300"
 							htmlFor="email"
 						>
 							Email
 						</label>
 						<div className="relative">
 							<input
-								className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
+								className="peer block w-full rounded-lg border border-blackbg-600 bg-blackbg-500 py-3 pl-12 text-sm text-white placeholder-gray-500 focus:border-orange-400 focus:outline-none focus:ring-2 focus:ring-orange-500"
 								id="email"
 								type="email"
 								name="email"
 								placeholder="Enter your email address"
 								required
 							/>
-							<AtSymbolIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
+							<AtSymbolIcon className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-500 peer-focus:text-orange-400" />
 						</div>
 					</div>
 					<div className="mt-4">
 						<label
-							className="mb-3 mt-5 block text-xs font-medium text-gray-900"
+							className="mb-2 block text-sm font-medium text-gray-300"
 							htmlFor="password"
 						>
 							Password
 						</label>
 						<div className="relative">
 							<input
-								className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
+								className="peer block w-full rounded-lg border border-blackbg-600 bg-blackbg-500 py-3 pl-12 text-sm text-white placeholder-gray-500 focus:border-orange-400 focus:outline-none focus:ring-2 focus:ring-orange-500"
 								id="password"
 								type="password"
 								name="password"
@@ -80,19 +79,19 @@ export default function SignupForm() {
 								required
 								minLength={6}
 							/>
-							<KeyIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
+							<KeyIcon className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-500 peer-focus:text-orange-400" />
 						</div>
 					</div>
 					<div className="mt-4">
 						<label
-							className="mb-3 mt-5 block text-xs font-medium text-gray-900"
+							className="mb-2 block text-sm font-medium text-gray-300"
 							htmlFor="confirmPassword"
 						>
 							Confirm Password
 						</label>
 						<div className="relative">
 							<input
-								className="peer block w-full rounded-md border border-gray-200 py-[9px] pl-10 text-sm outline-2 placeholder:text-gray-500"
+								className="peer block w-full rounded-lg border border-blackbg-600 bg-blackbg-500 py-3 pl-12 text-sm text-white placeholder-gray-500 focus:border-orange-400 focus:outline-none focus:ring-2 focus:ring-orange-500"
 								id="confirmPassword"
 								type="password"
 								name="confirmPassword"
@@ -100,23 +99,26 @@ export default function SignupForm() {
 								required
 								minLength={6}
 							/>
-							<KeyIcon className="pointer-events-none absolute left-3 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-gray-500 peer-focus:text-gray-900" />
+							<KeyIcon className="pointer-events-none absolute left-4 top-1/2 h-5 w-5 -translate-y-1/2 text-gray-500 peer-focus:text-orange-400" />
 						</div>
 					</div>
 				</div>
-				<Button className="mt-4 w-full" aria-disabled={isPending}>
-					Sign up <ArrowRightIcon className="ml-auto h-5 w-5 text-gray-50" />
+				<Button 
+					className="mt-6 w-full bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-lg transition-colors duration-300 ease-in-out flex items-center justify-center"
+					aria-disabled={isPending}
+				>
+					Sign up <ArrowRightIcon className="ml-2 h-5 w-5" />
 				</Button>
 				<div
-					className="flex h-8 items-end space-x-1"
+					className="flex h-8 items-end space-x-2 mt-4 justify-center"
 					aria-live="polite"
 					aria-atomic="true"
 				>
 					{errorMessage && (
-						<>
-							<ExclamationCircleIcon className="h-5 w-5 text-red-500" />
-							<p className="text-sm text-red-500">{errorMessage}</p>
-						</>
+						<div className="flex items-center">
+							<ExclamationCircleIcon className="h-5 w-5 text-red-400 mr-2" />
+							<p className="text-sm text-red-400">{errorMessage}</p>
+						</div>
 					)}
 				</div>
 			</div>

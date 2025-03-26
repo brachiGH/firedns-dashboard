@@ -4,11 +4,11 @@ import { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: {
-    template: '%s | Acme Dashboard',
-    default: 'Acme Dashboard',
+    template: '%s | FireDNS Dashboard',
+    default: 'FireDNS Dashboard',
   },
-  description: 'The official Next.js Course Dashboard, built with App Router.',
-  metadataBase: new URL('https://next-learn-dashboard.vercel.sh'),
+  description: 'FireDNS, a dns based firewall.',
+  metadataBase: new URL('https://www.brachi.me'),
 };
 
 export default function RootLayout({
