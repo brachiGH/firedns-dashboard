@@ -1,5 +1,4 @@
 'use client';
-
 import {
   UserGroupIcon,
   HomeIcon,
@@ -9,9 +8,6 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import clsx from 'clsx';
 
-
-// Map of links to display in the side navigation.
-// Depending on the size of the application, this would be stored in a database.
 const links = [
   { name: 'Home', href: '/dashboard', icon: HomeIcon },
   {
@@ -36,7 +32,7 @@ export default function NavLinks() {
               'flex h-[48px] grow items-center justify-center gap-2 rounded-md p-3 text-sm font-medium hover:bg-orange-400 md:flex-none md:justify-start md:p-2 md:px-3',
               pathname === link.href 
                 ? 'bg-orange-450 text-white' 
-                : 'bg-orange-500 text-gray-100'
+                : 'bg-orange-500 text-white'
             )}
           >
             <LinkIcon className="w-6" />
