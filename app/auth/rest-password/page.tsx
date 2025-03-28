@@ -1,4 +1,4 @@
-import ResetPasswordForm from '@/app/ui/rest-password-form';
+import ResetPasswordForm from '@/app/ui/auth/rest-password-form';
 
 export default function LoginPage() {
   return (

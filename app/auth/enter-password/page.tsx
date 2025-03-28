@@ -1,4 +1,4 @@
-import EnterNewPasswordForm from '@/app/ui/enter-new-password-form';
+import EnterNewPasswordForm from '@/app/ui/auth/enter-new-password-form';
 
 export default function LoginPage() {
   return (
