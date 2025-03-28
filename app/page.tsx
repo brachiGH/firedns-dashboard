@@ -14,10 +14,10 @@ export default function Page() {
           <a href="#" className="hover:text-[#f2874e]">Help</a>
         </div>
         <div className="space-x-4">
-          <Link href="/login" className="text-white/70 hover:text-white transition-colors px-3 py-1 rounded-md hover:bg-white/10">
+          <Link href="/auth/login" className="text-white/70 hover:text-white transition-colors px-3 py-1 rounded-md hover:bg-white/10">
             login
           </Link>
-          <Link href="/signup" className="text-white bg-orange-600 hover:bg-orange-700 transition-colors px-4 py-2 rounded-md">
+          <Link href="/auth/signup" className="text-white bg-orange-600 hover:bg-orange-700 transition-colors px-4 py-2 rounded-md">
             signup
           </Link>
         </div>

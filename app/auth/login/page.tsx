@@ -8,12 +8,12 @@ export default function LoginPage() {
         <div className="mt-6 flex flex-col items-center justify-center">
           <div className="text-sm flex flex-col items-center space-y-2">
             <a 
-            href="/rest-password" 
+            href="/auth/rest-password" 
             className="text-orange-400 hover:text-blue-800 transition-colors duration-200 hover:underline text-center"
             >Forgot password?</a>
             <div className="text-sm text-center">
               Don&apos;t have an account?{' '}
-              <a href="/signup" 
+              <a href="/auth/signup" 
               className="font-medium text-orange-400 hover:text-blue-800 transition-colors duration-200 hover:underline"
               >Sign up</a>
             </div>
