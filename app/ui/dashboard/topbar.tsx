@@ -4,7 +4,6 @@ import { useState, useEffect, useRef } from "react";
 import FireDNSLogo from "@/app/ui/firedns-logo";
 import {
   ChevronDownIcon,
-  DocumentCheckIcon,
   ArrowPathIcon,
 } from "@heroicons/react/24/outline";
 import { usePathname } from "next/navigation";

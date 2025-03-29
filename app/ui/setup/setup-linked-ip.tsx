@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { ArrowPathIcon, ClipboardIcon } from "@heroicons/react/24/outline";
+import { ArrowPathIcon } from "@heroicons/react/24/outline";
 import ClipboardButton from "../clipboard-button";
 import Card from "./dashboard-card";
 
@@ -20,9 +20,9 @@ export default function FireDNSLinkedIP({
       <div className="p-6 space-y-4">
         <div className="flex items-center justify-between py-2 border-b border-gray-200">
           <span className="text-gray-100">Current DNS Resolver:</span>
-            <span className="bg-gray-100 px-2 py-1 rounded text-sm h-9 flex items-center justify-center">
+          <span className="bg-gray-100 px-2 py-1 rounded text-sm h-9 flex items-center justify-center">
             {currentDnsResolver}
-            </span>
+          </span>
         </div>
 
         <div>
@@ -46,12 +46,12 @@ export default function FireDNSLinkedIP({
           <span className="text-gray-100">Linked IP:</span>
           <div className="flex items-center space-x-2">
             <span className="bg-red-300 px-2 py-1 rounded text-sm">
-              {linkedIp}<ArrowPathIcon className="h-4 w-4 inline ml-2 cursor-pointer" />
+              {linkedIp}
+              <ArrowPathIcon className="h-4 w-4 inline ml-2 cursor-pointer" />
             </span>
             <span className="bg-green-300 px-2 py-1 rounded text-sm">
               {linkedIp}
             </span>
-            
           </div>
         </div>
 
@@ -72,6 +72,6 @@ export default function FireDNSLinkedIP({
           </pre>
         </div>
       </div>
-      </Card>
+    </Card>
   );
 }
