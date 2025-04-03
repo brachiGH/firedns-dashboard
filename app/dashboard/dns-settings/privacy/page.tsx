@@ -1,9 +1,9 @@
-import Analytics from "@/app/ui/analytics/analytics"
+import Blocklists from "@/app/ui/dns-settings/blocklists"
 
 export default async function Page() {
   return (
     <main>
-      <Analytics />
+      <Blocklists />
     </main>
   );
 }

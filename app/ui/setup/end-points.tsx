@@ -6,14 +6,12 @@ import Card from "./dashboard-card";
 
 interface EndpointsProps {
   firednsid: string;
-  dnsOverTlsQuic: string;
   dnsOverHttps: string;
   ipv6: string[];
 }
 
 export default function Endpoints({
   firednsid,
-  dnsOverTlsQuic,
   dnsOverHttps,
   ipv6,
 }: EndpointsProps) {
@@ -36,7 +34,6 @@ export default function Endpoints({
     >
       <div className="p-6">
         <EndpointRow label="ID" value={firednsid} />
-        <EndpointRow label="DNS-over-TLS/QUIC" value={dnsOverTlsQuic} />
         <EndpointRow label="DNS-over-HTTPS" value={dnsOverHttps} />
         <h3 className="text-gl font-medium mb-2 mt-3 text-gray-100">
           DNS Servers IPv6

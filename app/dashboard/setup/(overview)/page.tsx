@@ -9,7 +9,6 @@ export default async function Page() {
         <div className="flex-1 m-1 mt-0">
           <Endpoints
             firednsid={"e35186"}
-            dnsOverTlsQuic={"e35186.dns.brachi.me"}
             dnsOverHttps={"https://dns.brachi.me/e35186"}
             ipv6={["IPv6 Not yet supported", "IPv6 Not yet supported"]}
           />

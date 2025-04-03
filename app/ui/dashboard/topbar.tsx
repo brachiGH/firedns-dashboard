@@ -11,7 +11,7 @@ import clsx from "clsx";
 
 const links = [
   { name: "Setup", href: "/dashboard/setup" },
-  { name: "DNS Settings", href: "/dashboard/settings" },
+  { name: "DNS Settings", href: "/dashboard/dns-settings" },
   { name: "Analytics", href: "/dashboard/analytics" },
 ];
 

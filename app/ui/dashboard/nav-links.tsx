@@ -33,31 +33,31 @@ const links = [
     ],
   },
   {
-    name: "settings",
+    name: "dns-settings",
     navlinks: [
       {
         name: "General Settings",
-        href: "/dashboard/settings",
+        href: "/dashboard/dns-settings",
         icon: AdjustmentsVerticalIcon,
       },
       {
         name: "Privacy",
-        href: "/dashboard/settings/privacy",
+        href: "/dashboard/dns-settings/privacy",
         icon: LockClosedIcon,
       },
       {
         name: "Parental Control",
-        href: "/dashboard/settings/parentalcontrol",
+        href: "/dashboard/dns-settings/parentalcontrol",
         icon: UsersIcon,
       },
       {
         name: "Denylist",
-        href: "/dashboard/settings/denylist",
+        href: "/dashboard/dns-settings/denylist",
         icon: DocumentMinusIcon,
       },
       {
         name: "Allowlist",
-        href: "/dashboard/settings/allowlist",
+        href: "/dashboard/dns-settings/allowlist",
         icon: DocumentPlusIcon,
       },
     ],

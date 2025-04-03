@@ -1,9 +1,9 @@
-import Analytics from "@/app/ui/analytics/analytics"
+import Denylist from "@/app/ui/dns-settings/denylist"
 
 export default async function Page() {
   return (
     <main>
-      <Analytics />
+      <Denylist />
     </main>
   );
 }

@@ -11,7 +11,7 @@ export const authConfig = {
   callbacks: {
     authorized({ auth, request: { nextUrl } }) {
       const isLoggedIn = !!auth?.user;
-      console.log("wee:", nextUrl.pathname);
+      console.log("auth midware is called:", nextUrl.pathname);
       const isOnDashboard = nextUrl.pathname.startsWith('/private');
       // if (isLoggedIn) return true;
       // if (isOnDashboard) {
