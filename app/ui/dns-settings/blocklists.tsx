@@ -83,7 +83,7 @@ export default function Blocklists() {
           </div>
         ))}
       </div>
-      <button className="mt-6 px-4 py-2 bg-orange-400 text-white-900 font-semibold rounded hover:bg-orange-500">
+      <button className="mt-6 px-4 py-2 bg-orange-600 text-white-900 font-semibold rounded hover:bg-orange-500">
         Add a Blocklist
       </button>
     </div>

@@ -33,7 +33,7 @@ export default function FireDNSLinkedIP({
             {dnsServers.map((server) => (
               <div
                 key={server}
-                className="flex items-center justify-between bg-orange-400 p-2 rounded text-gray-100"
+                className="flex items-center justify-between bg-orange-600 p-2 rounded text-gray-100"
               >
                 <span>{server}</span>
                 <ClipboardButton text={server} />

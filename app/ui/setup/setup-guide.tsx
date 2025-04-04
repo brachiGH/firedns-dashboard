@@ -65,7 +65,7 @@ export default function FireDNSSetupGuide({
               {dnsServers.map((server) => (
                 <div
                   key={server}
-                  className="flex items-center bg-gray-100 px-2 py-1 rounded bg-orange-400"
+                  className="flex items-center bg-gray-100 px-2 py-1 rounded bg-orange-600"
                 >
                   <span>{server}</span>
                   <ClipboardButton text={server} />

@@ -15,6 +15,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import clsx from "clsx";
 
+// Dynamic links array
 const links = [
   {
     name: "setup",
@@ -62,41 +63,55 @@ const links = [
       },
     ],
   },
-  { name: "analytics", navlinks: [
-    {
-      name: "Analytics",
-      href: "/dashboard/analytics",
-      icon: ChartPieIcon,
-    },
-    {
-      name: "Logs",
-      href: "/dashboard/analytics/logs",
-      icon: DocumentTextIcon,
-    },] },
+  {
+    name: "analytics",
+    navlinks: [
+      {
+        name: "Analytics",
+        href: "/dashboard/analytics",
+        icon: ChartPieIcon,
+      },
+      {
+        name: "Logs",
+        href: "/dashboard/analytics/logs",
+        icon: DocumentTextIcon,
+      },
+    ],
+  },
 ];
 
 export default function NavLinks() {
   const pathname = usePathname();
+
   return (
     <>
       {links.map((toplink) => {
         if (pathname.includes(toplink.name)) {
-          return toplink.navlinks.map((link) => {
+          return toplink.navlinks.map((link, index) => {
             const LinkIcon = link.icon;
+            // Random color class for demo: you can modify this as needed
+            const cardClass = index % 4 === 0
+            ? "red"
+            : index % 4 === 1
+            ? "blue"
+            : index % 4 === 2
+            ? "green"
+            : "yellow";
             return (
-              <Link
-                key={link.name}
-                href={link.href}
-                className={clsx(
-                  "flex h-[48px] grow items-center justify-center gap-2 rounded-md p-3 text-sm font-medium hover:bg-orange-400 md:flex-none md:justify-start md:p-2 md:px-3 font-sans",
-                  pathname === link.href
-                    ? "bg-orange-450 text-white"
-                    : "bg-orange-500 text-white"
-                )}
-              >
-                <LinkIcon className="w-6" />
-                <p className="hidden md:block">{link.name}</p>
-              </Link>
+              <div key={link.name} className={`card ${cardClass}`}>
+                <Link
+                  href={link.href}
+                  className={clsx(
+                    "flex h-[48px] grow items-center justify-center gap-2 rounded-md p-3 text-sm font-medium hover:bg-opacity-60 md:flex-none md:justify-start md:p-2 md:px-3 font-sans",
+                    pathname === link.href
+                      ? "bg-transparent text-white"
+                      : "bg-transparent text-white"
+                  )}
+                >
+                  <LinkIcon className="w-6" />
+                  <p className="hidden md:block">{link.name}</p>
+                </Link>
+              </div>
             );
           });
         }

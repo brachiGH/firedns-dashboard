@@ -48,7 +48,7 @@ export default function SecuritySettings() {
             onChange={() => handleToggle(setting)}
             aria-label={`Toggle ${title}`}
           />
-          <div className={`w-11 h-6 bg-gray-600 peer-focus:outline-none rounded-full peer ${settings[setting] ? 'peer-checked:bg-orange-400' : ''} after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-full`}></div>
+          <div className={`w-11 h-6 bg-gray-600 peer-focus:outline-none rounded-full peer ${settings[setting] ? 'peer-checked:bg-orange-600' : ''} after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-full`}></div>
           <span className="ml-3 text-sm font-medium text-gray-300">
             {settings[setting] ? `Disable ${title}` : `Enable ${title}`}
           </span>

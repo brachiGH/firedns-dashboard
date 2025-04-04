@@ -19,7 +19,7 @@ export default function Endpoints({
     <div className="flex items-center justify-between py-2 border-b border-gray-200 last:border-b-0">
       <span className="text-gray-100 font-medium">{label}</span>
       <div className="flex items-center space-x-2">
-        <span className="text-white bg-orange-400 px-2 py-1 rounded text-sm flex items-center">
+        <span className="text-white bg-orange-600 px-2 py-1 rounded text-sm flex items-center">
           {value}
           <ClipboardButton text={value} />
         </span>
@@ -42,7 +42,7 @@ export default function Endpoints({
           {ipv6.map((server, index) => (
             <div
               key={server+index}
-              className="flex items-center justify-between bg-orange-400 p-2 rounded text-gray-100"
+              className="flex items-center justify-between bg-orange-600 p-2 rounded text-gray-100"
             >
               <span>{server}</span>
               <ClipboardButton text={server} />

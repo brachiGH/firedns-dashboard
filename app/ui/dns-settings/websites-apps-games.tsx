@@ -206,7 +206,7 @@ export default function WebsitesAppsGames() {
                   />
                   <div
                     className={`w-11 h-6 bg-gray-600 peer-focus:outline-none rounded-full peer ${
-                      website.enabled ? "peer-checked:bg-orange-400" : ""
+                      website.enabled ? "peer-checked:bg-orange-600" : ""
                     } after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:after:translate-x-full`}
                   ></div>
                 </label>
@@ -274,7 +274,7 @@ export default function WebsitesAppsGames() {
       </div>
       
       <div className="mt-6 mb-8 flex justify-end">
-        <button className="px-6 py-2 bg-orange-400 text-white-900 font-semibold rounded hover:bg-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-300">
+        <button className="px-6 py-2 bg-orange-600 text-white-900 font-semibold rounded hover:bg-orange-500 focus:outline-none focus:ring-2 focus:ring-orange-300">
           Save Changes
         </button>
       </div>

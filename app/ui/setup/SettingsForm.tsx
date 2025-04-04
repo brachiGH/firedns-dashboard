@@ -28,7 +28,7 @@ export default function SettingsForm() {
         />
         <button
           onClick={handleEmailChange}
-          className="px-4 py-2 bg-orange-400 text-white rounded hover:bg-orange-500 transition"
+          className="px-4 py-2 bg-orange-600 text-white rounded hover:bg-orange-500 transition"
         >
           Update Email
         </button>
@@ -56,7 +56,7 @@ export default function SettingsForm() {
         />
         <button
           onClick={handlePasswordChange}
-          className="px-4 py-2 bg-orange-400 text-white rounded hover:bg-orange-500 transition"
+          className="px-4 py-2 bg-orange-600 text-white rounded hover:bg-orange-500 transition"
         >
           Update Password
         </button>
