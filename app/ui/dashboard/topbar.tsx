@@ -1,13 +1,11 @@
 "use client";
+
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
-import FireDNSLogo from "@/app/ui/firedns-logo";
-import {
-  ChevronDownIcon,
-  ArrowPathIcon,
-} from "@heroicons/react/24/outline";
 import { usePathname } from "next/navigation";
+import { ArrowPathIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
 import clsx from "clsx";
+import FireDNSLogo from "@/app/ui/firedns-logo";
 
 const links = [
   { name: "Setup", href: "/dashboard/setup" },
@@ -40,62 +38,37 @@ export default function Topbar() {
   }, [isDropdownOpen]);
 
   return (
-    <div className="bg-blackbg-100 flex items-end justify-between border-b border-blackbg-300">
-      <Link
-        className="flex items-end justify-start p-4 md:ml-2 md:w-64"
-        href="/"
-      >
-        <FireDNSLogo />
-      </Link>
+    <div className="relative flex items-center justify-between px-6 py-4 bg-[#0f0f0f] shadow-md border-b border-[#1e1e1e]">
 
-      {/* Navigation Links */}
-      <div className="flex-grow flex items-end space-x-1 md:pl-1 text-sm md:text-lg">
-        {links.map((link) => (
-          <Link
-            key={link.name}
-            href={link.href}
-            className={clsx(
-              `px-3 py-2 text-gray-100 font-sans
-          hover:bg-blackbg-300
-          hover:border-b-2 
-          hover:border-orange-200 
-          transition-all 
-          duration-200 
-          ease-in-out`,
-              pathname.includes(link.href)
-                ? "border-b-2 border-orange-400 text-orange-400"
-                : ""
-            )}
+{/* Right - Nav + Dropdown */}
+<div className="flex items-center space-x-4 text-sm">
+        <nav className="hidden md:flex space-x-3 font-medium">
+          {links.map((link) => (
+            <Link
+              key={link.name}
+              href={link.href}
+              className={clsx(
+                "px-3 py-1 rounded hover:bg-orange-700/20 transition",
+                pathname.includes(link.href)
+                  ? "text-orange-400 border-b-2 border-orange-500"
+                  : "text-gray-200"
+              )}
+            >
+              {link.name}
+            </Link>
+          ))}
+        </nav>
+
+        <div className="relative" ref={dropdownRef}>
+          <button
+            onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+            className="flex items-center gap-2 text-white hover:text-orange-300 transition"
           >
-            {link.name}
-          </Link>
-        ))}
-      </div>
-      <button
-        onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-        className="flex items-center justify-center p-2 rounded text-green-300 hover:bg-blackbg-300"
-      >
-        <span className="mr-2">Current IP: 192.168.1.1</span>
-      </button>
-      <button
-        onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-        className="flex items-center justify-center p-2 mr-4 rounded text-red-400 hover:bg-blackbg-300"
-      >
-        <span className="mr-2">Link My IP</span>
-        <ArrowPathIcon className="h-4 w-4" />
-      </button>
-
-      <div className="relative" ref={dropdownRef}>
-        <button
-          onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-          className="flex items-center justify-center p-2 mr-4 rounded text-white hover:bg-blackbg-300"
-        >
-          <span className="mr-2 font-sans">myemail@mail.com</span>
-          <ChevronDownIcon className="h-4 w-4" />
-        </button>
-        {isDropdownOpen && (
-          <div className="absolute right-4 top-full mt-1 w-48 bg-blackbg-200 border border-blackbg-300 rounded shadow-lg z-50">
-            <div className="py-1">
+            <span className="font-sans">myemail@mail.com</span>
+            <ChevronDownIcon className="h-4 w-4" />
+          </button>
+          {isDropdownOpen && (
+            <div className="absolute right-0 mt-2 w-48 bg-[#1a1a1a] border border-[#2a2a2a] rounded-md shadow-lg z-50">
               <Link
                 href="/account"
                 className="block px-4 py-2 text-white hover:bg-blackbg-300"
@@ -115,9 +88,29 @@ export default function Topbar() {
                 Log out
               </Link>
             </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
+      {/* Center - Glowing Logo */}
+      <div className="absolute left-1/2 transform -translate-x-1/2 z-10 flex items-center justify-center">
+        <Link href="/" className="group relative flex items-center justify-center">
+          <div className="absolute inset-0 blur-md opacity-30 group-hover:opacity-50 transition-all bg-gradient-to-br from-orange-500 to-yellow-400 rounded-full w-32 h-14 animate-pulse" />
+          <div className="z-10 w-64">
+            <FireDNSLogo />
+          </div>
+        </Link>
+      </div>
+      {/* Left - User Info */}
+      <div className="flex items-center space-x-3 text-sm text-gray-300">
+        <span className="px-3 py-1 bg-blackbg-300 rounded-md text-green-400">
+          IP: 192.168.1.1
+        </span>
+        <button className="flex items-center gap-1 text-red-400 hover:text-red-300 transition">
+          Link My IP
+          <ArrowPathIcon className="h-4 w-4" />
+        </button>
+      </div>
+      
     </div>
   );
 }
