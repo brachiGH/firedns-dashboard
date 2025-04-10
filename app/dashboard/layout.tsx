@@ -4,7 +4,8 @@ import Topbar from "@/app/ui/dashboard/topbar";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex h-screen flex-col bg-blackbg-500">
+
+<div className="flex h-screen flex-col bg-transparent bg-pattern">
       {/* Top bar */}
       <div className="w-full">
         <Topbar />
