@@ -1,8 +1,25 @@
+'use client';
+
+import { useEffect, useState } from "react";
 import SideNav from "@/app/ui/dashboard/sidenav";
 import Topbar from "@/app/ui/dashboard/topbar";
+import Preloader from "@/app/ui/Preloader"; 
 
 
 export default function Layout({ children }: { children: React.ReactNode }) {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setLoading(false);
+    }, 1000); 
+
+    return () => clearTimeout(timeout);
+  }, []);
+
+  if (loading) {
+    return <Preloader />;
+  }
   return (
 
 <div className="flex h-screen flex-col bg-transparent bg-pattern">
