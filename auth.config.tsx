@@ -6,20 +6,22 @@ import type { NextAuthConfig } from 'next-auth';
  
 export const authConfig = {
   pages: {
-    signIn: '/login',
+    signIn: '/auth/login',
   },
   callbacks: {
     authorized({ auth, request: { nextUrl } }) {
       const isLoggedIn = !!auth?.user;
-      console.log("auth midware is called:", nextUrl.pathname);
-      const isOnDashboard = nextUrl.pathname.startsWith('/private');
-      if (isLoggedIn) return true;
+      const isOnDashboard = nextUrl.pathname.startsWith('/dashboard');
+      const isOnLogin = nextUrl.pathname === '/auth/login';
+      
       if (isOnDashboard) {
-        if (isLoggedIn) return true;
-        return false; // Redirect unauthenticated users to login page
-      } else if (isLoggedIn) {
+        // Only allow authenticated users on dashboard
+        return isLoggedIn;
+      } else if (isOnLogin && isLoggedIn) {
+        // Redirect logged in users from login to dashboard
         return Response.redirect(new URL('/dashboard', nextUrl));
       }
+      
       return true;
     },
   },
