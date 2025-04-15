@@ -22,7 +22,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   }
   return (
 
-<div className="flex h-screen flex-col bg-transparent bg-pattern">
+<div className="flex min-h-screen flex-col bg-transparent bg-pattern">
       {/* Top bar */}
       <div className="w-full">
         <Topbar />
