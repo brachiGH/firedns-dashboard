@@ -5,7 +5,6 @@ import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import clsx from "clsx";
-import FireDNSLogo from "@/app/ui/firedns-logo";
 import LinkedIp from "@/app/ui/dashboard/topbarComponents/linkedIpCard";
 
 const links = [
@@ -97,15 +96,6 @@ export default function Topbar({ userEmail, userIp, lastLinkedIp }: TopbarProps)
             </div>
           )}
         </div>
-      </div>
-      {/* Center - Glowing Logo */}
-      <div className="absolute left-1/2 transform -translate-x-1/2 z-10 flex items-center justify-center">
-        <Link href="/" className="group relative flex items-center justify-center">
-          <div className="absolute inset-0 blur-md opacity-30 group-hover:opacity-50 transition-all bg-gradient-to-br from-orange-500 to-yellow-400 rounded-full w-32 h-14 animate-pulse" />
-          <div className="z-10 w-64">
-            <FireDNSLogo />
-          </div>
-        </Link>
       </div>
       {/* Left - User Info */}
       <LinkedIp currentIp={userIp} isLinked={userIp == lastLinkedIp} />

@@ -8,7 +8,7 @@ import { getIPv4, getLastLinkedIPv4 } from "@/app/lib/userInfoActions";
 export default async function Page() {
   const session = await auth();
   const dnsServerAddress1 = "197.14.146.92"
-  const dnsServerAddress2 = "197.14.146.92"
+  const dnsServerAddress2 = "197.14.146.93"
 
   const currentUserIPv4 = await getIPv4();
   const lastLinkedIPv4 = await getLastLinkedIPv4();
