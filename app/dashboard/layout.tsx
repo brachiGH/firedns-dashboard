@@ -1,31 +1,20 @@
-'use client';
-
-import { useEffect, useState } from "react";
 import SideNav from "@/app/ui/dashboard/sidenav";
 import Topbar from "@/app/ui/dashboard/topbar";
-import Preloader from "@/app/ui/Preloader"; 
+import { auth } from '@/auth';
+import { getIPv4, getLastLinkedIPv4 } from "@/app/lib/userInfoActions";
 
+export default async function Layout({ children }: { children: React.ReactNode }) {
+  const session = await auth();
+  const userEmail = session?.user?.email;
 
-export default function Layout({ children }: { children: React.ReactNode }) {
-  const [loading, setLoading] = useState(true);
+  const currentUserIPv4 = await getIPv4();
+  const lastLinkedIPv4 = await getLastLinkedIPv4();
 
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setLoading(false);
-    }, 1000); 
-
-    return () => clearTimeout(timeout);
-  }, []);
-
-  if (loading) {
-    return <Preloader />;
-  }
   return (
-
-<div className="flex min-h-screen flex-col bg-transparent bg-pattern">
+    <div className="flex min-h-screen flex-col bg-transparent bg-pattern">
       {/* Top bar */}
       <div className="w-full">
-        <Topbar />
+        <Topbar userEmail={userEmail} userIp={currentUserIPv4} lastLinkedIp={lastLinkedIPv4} />
       </div>
       
       {/* Main content area with sidebar and children */}

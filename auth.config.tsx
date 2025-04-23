@@ -7,19 +7,21 @@ import type { NextAuthConfig } from 'next-auth';
 export const authConfig = {
   pages: {
     signIn: '/auth/login',
+    signOut: '/auth/logout'
   },
   callbacks: {
     authorized({ auth, request: { nextUrl } }) {
       const isLoggedIn = !!auth?.user;
       const isOnDashboard = nextUrl.pathname.startsWith('/dashboard');
-      const isOnLogin = nextUrl.pathname === '/auth/login';
+      const isNotLogout = !(nextUrl.pathname === "/auth/logout");
       
       if (isOnDashboard) {
         // Only allow authenticated users on dashboard
         return isLoggedIn;
-      } else if (isOnLogin && isLoggedIn) {
+      } else if (isLoggedIn && isNotLogout) {
         // Redirect logged in users from login to dashboard
-        return Response.redirect(new URL('/dashboard', nextUrl));
+        let url = new URL('/dashboard/setup', nextUrl);
+        return Response.redirect(url);
       }
       
       return true;

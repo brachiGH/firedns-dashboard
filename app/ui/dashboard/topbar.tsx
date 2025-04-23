@@ -3,9 +3,10 @@
 import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
-import { ArrowPathIcon, ChevronDownIcon } from "@heroicons/react/24/outline";
+import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import clsx from "clsx";
 import FireDNSLogo from "@/app/ui/firedns-logo";
+import LinkedIp from "@/app/ui/dashboard/topbarComponents/linkedIpCard";
 
 const links = [
   { name: "Setup", href: "/dashboard/setup" },
@@ -13,7 +14,13 @@ const links = [
   { name: "Analytics", href: "/dashboard/analytics" },
 ];
 
-export default function Topbar() {
+interface TopbarProps {
+  userEmail: string | null | undefined;
+  userIp: string | null | undefined;
+  lastLinkedIp: string | null | undefined;
+}
+
+export default function Topbar({ userEmail, userIp, lastLinkedIp }: TopbarProps) {
   const pathname = usePathname();
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -64,7 +71,7 @@ export default function Topbar() {
             onClick={() => setIsDropdownOpen(!isDropdownOpen)}
             className="flex items-center gap-2 text-white hover:text-orange-300 transition"
           >
-            <span className="font-sans">myemail@mail.com</span>
+            <span className="font-sans">{userEmail}</span>
             <ChevronDownIcon className="h-4 w-4" />
           </button>
           {isDropdownOpen && (
@@ -101,16 +108,7 @@ export default function Topbar() {
         </Link>
       </div>
       {/* Left - User Info */}
-      <div className="flex items-center space-x-3 text-sm text-gray-300">
-        <span className="px-3 py-1 bg-blackbg-300 rounded-md text-green-400">
-          IP: 192.168.1.1
-        </span>
-        <button className="flex items-center gap-1 text-red-400 hover:text-red-300 transition">
-          Link My IP
-          <ArrowPathIcon className="h-4 w-4" />
-        </button>
-      </div>
-      
+      <LinkedIp currentIp={userIp} isLinked={userIp == lastLinkedIp} />
     </div>
   );
 }

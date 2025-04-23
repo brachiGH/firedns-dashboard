@@ -16,7 +16,7 @@ export default function LoginForm() {
 		undefined,
 	);
 	return (
-		<form className="space-y-3 min-h-screen flex items-center justify-center bg-blackbg-500 p-4" action={formAction}>
+		<form className="space-y-3 flex items-center justify-center bg-blackbg-500 p-4" action={formAction}>
 			<div className="w-full max-w-md bg-blackbg-400 rounded-2xl shadow-2xl border border-blackbg-600 px-8 py-10">
 				<h1 className={`${lusitana.className} mb-6 text-3xl font-bold text-white text-center`}>
 					Please log in to continue

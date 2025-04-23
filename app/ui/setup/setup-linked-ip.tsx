@@ -7,13 +7,15 @@ import Card from "./dashboard-card";
 interface SettingsProps {
   currentDnsResolver: string;
   dnsServers: string[];
-  linkedIp: string;
+  linkedIp: string | null | undefined;
+  isLinked: boolean;
 }
 
 export default function FireDNSLinkedIP({
   currentDnsResolver,
   dnsServers,
   linkedIp,
+  isLinked,
 }: SettingsProps) {
   return (
     <Card title="Setup FireDNS" subtitle="Set up FireDNS using linked IP.">
@@ -45,13 +47,14 @@ export default function FireDNSLinkedIP({
         <div className="flex items-center justify-between py-2 border-b border-gray-200 last:border-b-0">
           <span className="text-gray-100">Linked IP:</span>
           <div className="flex items-center space-x-2">
-            <span className="bg-red-300 px-2 py-1 rounded text-sm">
-              {linkedIp}
-              <ArrowPathIcon className="h-4 w-4 inline ml-2 cursor-pointer" />
-            </span>
+            {isLinked? 
             <span className="bg-green-300 px-2 py-1 rounded text-sm">
               {linkedIp}
-            </span>
+            </span> : 
+            <span className="bg-red-300 px-2 py-1 rounded text-sm">
+            {linkedIp ? linkedIp : "Not Linked"}
+              <ArrowPathIcon className="h-4 w-4 inline ml-2 cursor-pointer" />
+            </span>}
           </div>
         </div>
 
