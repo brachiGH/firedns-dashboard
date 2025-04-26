@@ -1,19 +1,27 @@
 "use client";
+import { addAllowDomain, removeDenyDomain } from "@/app/lib/userSettingActions";
 import React, { useState } from "react";
 
-export default function Allowlist() {
-  const [domains, setDomains] = useState<string[]>([]);
+
+interface AllowListProp {
+  AllowList: string[]
+}
+
+export default function Allowlist({AllowList}: AllowListProp) {
+  const [domains, setDomains] = useState<string[]>(AllowList);
   const [newDomain, setNewDomain] = useState("");
 
-  const addDomain = () => {
+  const addDomain = async () => {
     if (newDomain.trim() && !domains.includes(newDomain)) {
       setDomains([...domains, newDomain]);
       setNewDomain("");
+      await addAllowDomain(newDomain);
     }
   };
 
-  const removeDomain = (domain: string) => {
+  const removeDomain = async (domain: string) => {
     setDomains(domains.filter((d) => d !== domain));
+    await removeDenyDomain(domain);
   };
 
   return (

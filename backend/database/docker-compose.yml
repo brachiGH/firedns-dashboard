@@ -1,0 +1,18 @@
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres-container
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: nextjs-dashboard-postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    user: "999:999"
+
+volumes:
+  postgres_data:
+    driver: local
+

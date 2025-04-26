@@ -1,19 +1,26 @@
 "use client";
+import { addDenyDomain, removeDenyDomain } from "@/app/lib/userSettingActions";
 import React, { useState } from "react";
 
-export default function Denylist() {
-  const [domains, setDomains] = useState<string[]>([]);
+interface DenyListProp {
+  DenyList: string[]
+}
+
+export default function Denylist({DenyList}: DenyListProp) {
+  const [domains, setDomains] = useState<string[]>(DenyList);
   const [newDomain, setNewDomain] = useState("");
 
-  const addDomain = () => {
+  const addDomain = async () => {
     if (newDomain.trim() && !domains.includes(newDomain)) {
       setDomains([...domains, newDomain]);
       setNewDomain("");
+      await addDenyDomain(newDomain);
     }
   };
 
-  const removeDomain = (domain: string) => {
+  const removeDomain = async (domain: string) => {
     setDomains(domains.filter((d) => d !== domain));
+    await removeDenyDomain(domain);
   };
 
   return (

@@ -23,7 +23,7 @@ export type Invoice = {
   date: string;
   // In TypeScript, this is called a string union type.
   // It means that the "status" property can only be one of the two strings: 'pending' or 'paid'.
-  status: 'pending' | 'paid';
+  status: "pending" | "paid";
 };
 
 export type Revenue = {
@@ -40,7 +40,7 @@ export type LatestInvoice = {
 };
 
 // The database returns a number for amount, but we later format it to a string with the formatCurrency function
-export type LatestInvoiceRaw = Omit<LatestInvoice, 'amount'> & {
+export type LatestInvoiceRaw = Omit<LatestInvoice, "amount"> & {
   amount: number;
 };
 
@@ -52,7 +52,7 @@ export type InvoicesTable = {
   image_url: string;
   date: string;
   amount: number;
-  status: 'pending' | 'paid';
+  status: "pending" | "paid";
 };
 
 export type CustomersTableType = {
@@ -84,5 +84,68 @@ export type InvoiceForm = {
   id: string;
   customer_id: string;
   amount: number;
-  status: 'pending' | 'paid';
+  status: "pending" | "paid";
+};
+
+// Define the structure for the settings options expected by the frontend
+export interface GeneralSettingsOptions {
+  ThreatIntelligence: boolean;
+  GoogleSafeBrowsing: boolean;
+  HomographProtection: boolean;
+  TyposquattingProtection: boolean;
+  BlockNewDomains: boolean;
+  BlockDynamicDNS: boolean;
+  BlockCSAM: boolean;
+}
+
+export interface PrivacySettingsOptions {
+  AdGuardMobileAdsFilter: boolean;
+  AdAway: boolean;
+  HageziMultiPro: boolean;
+  GoodbyeAds: boolean;
+  HostsVN: boolean;
+  NextDNSAdsTrackers: boolean;
+}
+
+export type securitySettings = {
+  title: string;
+  description: string;
+  setting: keyof GeneralSettingsOptions;
+};
+
+export type privacySettings = {
+  title: string;
+  description: string;
+  link: string;
+  entries: string;
+  updated: string;
+  setting: keyof PrivacySettingsOptions;
+};
+
+// Define the structure for TimeRange matching the Go backend
+export interface TimeRange {
+  start: string; // e.g., "12:00 PM"
+  end: string; // e.g., "6:30 PM"
+}
+
+// Day of the week type definition
+export type DayOfWeek =
+  | "Monday"
+  | "Tuesday"
+  | "Wednesday"
+  | "Thursday"
+  | "Friday"
+  | "Saturday"
+  | "Sunday";
+
+// Define the structure returned by the Go backend API for Parental Control Settings
+// Keys match the Go struct JSON tags (camelCase)
+export interface ParentalControlSettings {
+  blockedApps: { [key: string]: boolean }; // Map of app/service name to blocked status
+  recreationSchedule: { [key: string]: TimeRange }; // Map of day ("Monday", etc.) to TimeRange
+}
+
+export type parentalWebsiteSettings = {
+  name: string;
+  icon: string;
 };
