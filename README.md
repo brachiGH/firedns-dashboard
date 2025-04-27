@@ -99,7 +99,6 @@ Additionally, ensure the database configuration in database/docker-compose.yml m
 The project uses a Postgres database, managed through Docker Compose. Navigate to the database folder and launch the database using:
 
 ```bash
-cd database
 docker-compose up -d
 ```
 
