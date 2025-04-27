@@ -41,7 +41,7 @@ export default function SettingsCards({ securitySettings, settings }: settingCar
                 type="checkbox"
                 className="sr-only peer"
                 checked={isEnabled[setting]}
-                onChange={async (_) => {
+                onChange={async () => {
                   handleToggle(setting);
                 }}
                 aria-label={`Toggle ${title}`}

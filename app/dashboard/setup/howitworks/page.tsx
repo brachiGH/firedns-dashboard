@@ -27,7 +27,7 @@ export default async function Page() {
       </ul>
       <h2 className="text-2xl font-semibold mb-4 text-orange-400">Why Choose FireDNS?</h2>
       <p className="mb-4 text-gray-200">
-        FireDNS is easy to set up and works across all your devices. Whether you're at home, at work, or on the go, it ensures a secure and private internet experience.
+        FireDNS is easy to set up and works across all your devices. Whether you&apos;re at home, at work, or on the go, it ensures a secure and private internet experience.
       </p>
       <p className="text-gray-200 bg-orange-600 bg-opacity-10 p-4 border-l-4 border-orange-500 rounded-r">
         Start using FireDNS today and take control of your online privacy and security.

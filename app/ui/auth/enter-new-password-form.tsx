@@ -10,9 +10,11 @@ import { useActionState } from 'react';
 import { resetPassword } from '@/app/lib/actions';
 
 export default function EnterNewPasswordForm() {
+	// Define the initial state explicitly to match the expected type of the action's first argument
+	const initialState: string | undefined = undefined; 
 	const [errorMessage, formAction, isPending] = useActionState(
 		resetPassword,
-		undefined,
+		initialState, // Pass the explicitly typed initial state
 	);
 	return (
 		<form className="space-y-3 min-h-screen flex items-center justify-center bg-blackbg-500 p-4" action={formAction}>

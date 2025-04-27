@@ -49,7 +49,7 @@ export default function PrivacySettingsCards({ blocklists, settings }: settingCa
                 type="checkbox"
                 className="sr-only peer"
                 checked={isEnabled[blocklist.setting]}
-                onChange={async (_) => {
+                onChange={async () => {
                   handleToggle(blocklist.setting);
                 }}
                 aria-label={`Toggle ${blocklist.title}`}

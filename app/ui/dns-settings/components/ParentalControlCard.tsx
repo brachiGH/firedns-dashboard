@@ -3,6 +3,7 @@
 import { ParentalControlSettings, parentalWebsiteSettings, DayOfWeek } from "@/app/lib/definitions";
 import { updateParentalControlSettings } from "@/app/lib/userSettingActions";
 import { useState } from "react";
+import Image from "next/image"; // Import the Image component
 
 interface parentalControlCardProps {
     settings: ParentalControlSettings;
@@ -39,7 +40,7 @@ export default function ParentalControlCard({settings, websites}: parentalContro
   const generateTimeOptions = () => {
     const options = [];
     for (let hour = 0; hour < 24; hour++) {
-      for (let minute of ["00", "30"]) {
+      for (const minute of ["00", "30"]) { // Use const instead of let
         const hourFormatted = hour.toString().padStart(2, "0");
         options.push(`${hourFormatted}:${minute}`);
       }
@@ -75,7 +76,7 @@ export default function ParentalControlCard({settings, websites}: parentalContro
         <>
         
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
-        {websites.map((website, _) => {
+        {websites.map((website) => { // Remove the unused index variable '_'
           const originalIndex = websites.findIndex(
             (w) => w.name === website.name
           );
@@ -86,10 +87,12 @@ export default function ParentalControlCard({settings, websites}: parentalContro
             >
               <div className="flex items-center">
                 {website.icon ? (
-                  <img
+                  <Image // Use the Next.js Image component
                     src={website.icon}
                     alt={`${website.name} icon`}
-                    className="w-6 h-6 mr-3"
+                    width={24} // Add width prop
+                    height={24} // Add height prop
+                    className="mr-3" // Adjust className if needed, w-6 h-6 corresponds to 24px
                   />
                 ) : (
                   <div className="w-8 h-8 mr-3 rounded-full bg-gray-600 flex items-center justify-center text-sm font-semibold">

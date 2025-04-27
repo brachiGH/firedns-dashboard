@@ -12,7 +12,7 @@ export async function getIPv4() {
   const realIp = headersList.get("x-real-ip");
 
   // Determine the user's IP address
-  let rawIp: string | null = forwardedFor
+  const rawIp: string | null = forwardedFor
     ? forwardedFor.split(",")[0].trim()
     : realIp;
   let userIp: string | null = null;
