@@ -149,3 +149,9 @@ export type parentalWebsiteSettings = {
   name: string;
   icon: string;
 };
+
+export interface BackendLogEntry {
+  domain: string;
+  timestamp: string; // Assuming backend sends ISO string (e.g., "2025-04-26T22:20:24.123Z")
+  status: 'allowed' | 'blocked';
+}

@@ -5,6 +5,7 @@ import (
 	"net/http"
 	"os"
 
+	"github.com/BrachiGH/firedns-dashboard/internal/handlers/analytics"
 	"github.com/BrachiGH/firedns-dashboard/internal/handlers/settings"
 )
 
@@ -14,6 +15,8 @@ func StartApiServer() {
 	http.HandleFunc("/settings/parental/", settings.ParentalControlHandler)
 	http.HandleFunc("/settings/denylist/", settings.DenyListHandler)
 	http.HandleFunc("/settings/allowlist/", settings.AllowListHandler)
+	http.HandleFunc("/analytics/", analytics.AnalyticsHandler)
+	http.HandleFunc("/logs/", analytics.LogsHandler)
 
 	port := ":8080"
 
