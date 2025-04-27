@@ -2,6 +2,7 @@ services:
   postgres:
     image: postgres:latest
     container_name: postgres-container
+    restart: unless-stopped
     ports:
       - "5432:5432"
     environment:
@@ -18,6 +19,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+    restart: unless-stopped
     environment:
       POSTGRES_USER: myuser
       POSTGRES_PASSWORD: mypassword
