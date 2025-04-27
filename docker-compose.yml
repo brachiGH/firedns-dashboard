@@ -1,0 +1,43 @@
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres-container
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_DB: nextjs-dashboard-postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    user: "999:999"
+    networks:
+      postgres-network:
+
+  dashboard:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      POSTGRES_USER: myuser
+      POSTGRES_PASSWORD: mypassword
+      POSTGRES_HOST: localhost
+      POSTGRES_PORT: 5432
+      POSTGRES_DATABASE: nextjs-dashboard-postgres
+      MONGO_DB_URI: mongodb://root:root@localhost:27017
+    container_name: firedns-dashboard
+    command: pnpm run start & ./backend/settingsAndAnalyticsService/main
+    ports:
+      - "3000:3000"
+    networks:
+      - "mongo-network"
+      - "postgres-network"
+
+
+volumes:
+  postgres_data:
+
+networks:
+  postgres-network:
+  mongo-network:
+    external: true 
